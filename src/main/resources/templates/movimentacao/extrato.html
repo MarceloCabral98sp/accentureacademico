@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Controle Entrada e Saida</title>
+
+<!-- MATERIALIZE 
+<
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+      
+     <link type="text/css" rel="stylesheet" href="/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/> -->
+<!-- MATERIALIZE -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+</head>
+<body>
+</br>
+</br>
+<h1 align="center">EXTRATO DA CONTA CORRENTE</h1>
+</br>
+</br>
+</br>
+  
+
+  <table class="table table-striped table-dark" id="tblExtrato">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID_MOVIMENTAÇÃO</th>
+      <th scope="col">DATA</th>
+      <th scope="col">HORA</th>
+      <th scope="col">TIPO DE OPERAÇÃO</th>
+      <th scope="col">VALOR</th>
+      
+    </tr>
+    </thead>
+   <tr th:each = "extrato : ${extratoobj}">
+   <td th:text="${extrato.idMovimentacao}"></td>
+   <td th:text="${extrato.dataMovimentacao}"></td>
+   <td th:text="${extrato.horaMovimentacao}"></td>
+   <td th:text="${extrato.tipoOperacao}"></td>
+   <td th:text="${extrato.valor}"></td>
+  
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <link rel="stylesheet" href="//cdn.datable.net/1.10.10/css/jquery.dataTable.min.css">
+   <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+   <script>
+      $(document).ready(function(){
+    	  $('#tblExtrato').DataTable({
+    		  "language": {
+    	            "lengthMenu": "Mostrando _MENU_ N° de Registros",
+    	            "zeroRecords": "Nada Encontrado",
+    	            "info": "Mostrando Página _PAGE_ de _PAGES_",
+    	            "infoEmpty": "Nenhum registro disponível",
+    	            "infoFiltered": "(filtrado de _MAX_ total records)"
+    	        }
+    	  });
+      });
+   </script>
+  
+   
+</body>
+</html>
